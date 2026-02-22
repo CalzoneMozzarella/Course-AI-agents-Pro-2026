@@ -4,6 +4,21 @@
 
 `Researcher -> Analyst -> Reporter -> END`
 
+### Діаграма взаємодії агентів
+
+```mermaid
+flowchart LR
+    A[Researcher]
+    B[Analyst]
+    C[Reporter]
+    E([END])
+
+    A -->|research_results + messages| B
+    B -->|analysis_results + messages| C
+    C -->|final_report + messages| E
+    B -->|if research_results < 100 words| A
+```
+
 Система:
 - використовує спільний стан `AgentState`,
 - додає лог виконання у `messages`,
